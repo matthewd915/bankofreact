@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 import AccountBalance from './AccountBalance';
+import './Debits.css';
 
 
 const Debits = (props) => {
@@ -42,11 +43,14 @@ const Debits = (props) => {
   };
 
   return (
-    <div>
-      <h1>Debits</h1>
+    <div className = "debits-container">
+      <h1 className = "title">Debits</h1>
+      <h1 className = "balance-display">
+        <AccountBalance accountBalance={props.accountBalance} />
+      </h1>
       {debitsView()}
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className = "form">
         <input
           type="text"
           name="description"
@@ -66,8 +70,7 @@ const Debits = (props) => {
       </form>
 
       <br />
-      <Link to="/">Return to Home</Link>
-      <AccountBalance accountBalance={props.accountBalance} />
+      <Link to="/" className = "link">Return to Home</Link>
     </div>
   );
 };
