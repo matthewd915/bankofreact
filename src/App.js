@@ -19,8 +19,8 @@ class App extends Component {
     super(); 
     this.state = {
       accountBalance: 1234567.89,
-      creditList: [],
-      debitList: [],
+      credit: [],
+      debit: [],
       currentUser: {
         userName: 'Joe Smith',
         memberSince: '11/22/99',
@@ -35,6 +35,44 @@ class App extends Component {
     this.setState({currentUser: newUser})
   }
 
+  componentDidMount() {
+
+    //request, goes untill both work or one breaks, goes into creditRes and debitRes
+    Promise.all([
+      fetch("https://johnnylaicode.github.io/api/credits.json"),
+      fetch("https://johnnylaicode.github.io/api/debits.json")
+    ])
+
+    //checks if the responses are OK (are in and okay status range) and then converts to json
+    .then(([creditRes, debitRes]) => {
+
+      if(!creditRes.ok || !debitRes.ok ) {
+        throw new Error ("FAILED TO FETCH DATA");
+      }
+
+      //need to return both as jsons ( if we dont return we cant access this outside)
+      return Promise.all([creditRes.json(), debitRes.json()]);
+
+    })
+
+    //json data goes into creditData and debitData, we update the states to hold the response
+    .then(([creditData, debitData]) => {
+
+      this.setState({
+        credit: creditData,
+        debit: debitData
+      });
+    })
+
+    //catches error 
+    .catch(error => {
+
+      console.error("Error fetching credit or debit data:", error);
+
+    });
+
+}
+
   // Create Routes and React elements to be rendered using React components
   render() {  
     // Create React elements and pass input props to components
@@ -45,7 +83,6 @@ class App extends Component {
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.creditList} />) 
     const DebitsComponent = () => (<Debits debits={this.state.debitList} />) 
-
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
       <Router basename="/bankofreact">
