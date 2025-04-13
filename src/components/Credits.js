@@ -7,6 +7,21 @@ Note: You need to work on this file for the Assignment.
 import {Link} from 'react-router-dom';
 
 const Credits = (props) => {
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    // we're not displaying id, so just use an arbitrary number
+    const new_credit = {
+      id:0,
+      description: e.target.elements.description.value,
+      amount: e.target.elements.amount.value,
+      date: new Date().toISOString()
+    }
+
+    props.addCredit(new_credit);
+    e.target.reset();
+  }
+
   let creditsView = () => {
     const { credits } = props;
     return credits.map((credit) => {
@@ -19,7 +34,7 @@ const Credits = (props) => {
       <h1>Credits</h1>
       {creditsView()}
 
-      <form onSubmit={props.addDebit}>
+      <form onSubmit={handleAdd}>
         <input type="text" name="description" />
         <input type="number" name="amount" />
         <button type="submit">Add Credit</button>

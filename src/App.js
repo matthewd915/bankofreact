@@ -71,7 +71,16 @@ class App extends Component {
 
     });
 
-}
+  }
+
+  addCredit = (added_credit) => {
+    const new_credit_list = [...this.state.credit, added_credit] // create a new array appending added_credit obj to the end
+    // set creditList to new_credit_list and add the credit amt to our balance
+    this.setState(prevState => ({
+      credit: new_credit_list,
+      accountBalance: prevState.accountBalance + added_credit.amount,
+    }));
+  }
 
   // Create Routes and React elements to be rendered using React components
   render() {  
@@ -81,7 +90,7 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.credit} />) 
+    const CreditsComponent = () => (<Credits credits={this.state.credit} addCredit={this.addCredit}/>) 
     const DebitsComponent = () => (<Debits debits={this.state.debit} />) 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
