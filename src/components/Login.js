@@ -1,12 +1,7 @@
-/*==================================================
-src/components/Login.js
-
-The LogIn component is used to demonstrate the use of Redirect.
-Note: You don't need to work on this file for the Assignment.
-==================================================*/
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import "./Login.css"
 
 class LogIn extends Component {
   constructor (props) {  // Create and initialize state
@@ -43,22 +38,33 @@ class LogIn extends Component {
 
     // Render the login form (and call "handleSubmit" method when "Log In" button is clicked to submit form)
     return (
-      <div>
-        <h1>Login</h1>
-        
-        <form onSubmit={this.handleSubmit}>
+      <div className="login-container">
+
+        <form className onSubmit={this.handleSubmit}>
           <div>
             <label>User Name</label>
-            <input type="text" name="userName" defaultValue={this.props.user.userName} onChange={this.handleChange} />
+            <input
+              type="text"
+              name="userName"
+              defaultValue={this.props.user.userName}
+              onChange={this.handleChange}
+            />
           </div>
+
           <div>
             <label>Password</label>
-            <input type="password" name="password" />
+            <input
+              type="password"
+              name="password"
+            />
           </div>
-          <button>Log In</button>
-        </form>  
-        <br/>
-        <Link to="/">Return to Home</Link>
+
+          <button className type="submit">Log In</button>
+        </form>
+
+        <Link to="/" className="user-button">
+          Return to Home
+        </Link>
       </div>
     );
   }
