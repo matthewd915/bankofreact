@@ -28,7 +28,7 @@ class App extends Component {
   constructor() {  // Create and initialize state
     super(); 
     this.state = {
-      accountBalance: 1234567.89,
+      accountBalance: 0,
       credit: [],
       debit: [],
       currentUser: {
@@ -67,10 +67,21 @@ class App extends Component {
 
     //json data goes into creditData and debitData, we update the states to hold the response
     .then(([creditData, debitData]) => {
+      let totalCredits = 0;
+      for (let i = 0; i < creditData.length; i++) {
+        totalCredits += parseFloat(creditData[i].amount);
+      }
+
+      let totalDebits = 0;
+      for (let i = 0; i < debitData.length; i++) {
+        totalDebits += parseFloat(debitData[i].amount);
+      }
+      const balance = totalCredits - totalDebits;
 
       this.setState({
         credit: creditData,
-        debit: debitData
+        debit: debitData,
+        accountBalance: balance
       });
     })
 
