@@ -14,7 +14,7 @@ const Credits = (props) => {
     const new_credit = {
       id:0,
       description: e.target.elements.description.value,
-      amount: parseFloat(e.target.elements.amount.value).toFixed(2),
+      amount: parseFloat(parseFloat(e.target.elements.amount.value).toFixed(2)),
       date: new Date().toISOString()
     }
 
