@@ -3,6 +3,16 @@ src/App.js
 
 This is the top-level component of the app.
 It contains the top-level state.
+Expand
+message.js
+4 KB
+﻿
+```js
+/*==================================================
+src/App.js
+
+This is the top-level component of the app.
+It contains the top-level state.
 ==================================================*/
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -71,7 +81,25 @@ class App extends Component {
 
     });
 
-}
+  }
+
+  addCredit = (added_credit) => {
+    const new_credit_list = [...this.state.credit, added_credit] // create a new array appending added_credit obj to the end
+    // set creditList to new_credit_list and add the credit amt to our balance
+    this.setState(prevState => ({
+      credit: new_credit_list,
+      accountBalance: prevState.accountBalance + added_credit.amount,
+    }));
+  }
+
+  addDebit = (added_debit) => {
+    const new_debit_list = [...this.state.debit, added_debit] // create a new array appending added_debit obj to the end
+    // set debit to new_debit_list and add the add amt to our balance
+    this.setState(prevState => ({
+      debit: new_debit_list,
+      accountBalance: prevState.accountBalance - added_debit.amount
+    }));
+  }
 
   // Create Routes and React elements to be rendered using React components
   render() {  
@@ -81,8 +109,8 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.credit} />) 
-    const DebitsComponent = () => (<Debits debits={this.state.debit} />) 
+    const CreditsComponent = () => (<Credits credits={this.state.credit} addCredit={this.addCredit}/>) 
+    const DebitsComponent = () => (<Debits debits={this.state.debit} addDebit={this.addDebit}/>) 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
       <Router basename="/bankofreact">
