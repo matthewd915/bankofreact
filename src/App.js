@@ -70,7 +70,15 @@ class App extends Component {
       console.error("Error fetching credit or debit data:", error);
 
     });
+}
 
+addDebit = (added_debit) => {
+  const new_debit_list = [...this.state.debit, added_debit] // create a new array appending added_debit obj to the end
+  // set debit to new_debit_list and add the add amt to our balance
+  this.setState(prevState => ({
+    debit: new_debit_list,
+    accountBalance: prevState.accountBalance - added_debit.amount
+  }));
 }
 
   // Create Routes and React elements to be rendered using React components
@@ -82,7 +90,7 @@ class App extends Component {
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
     const CreditsComponent = () => (<Credits credits={this.state.credit} />) 
-    const DebitsComponent = () => (<Debits debits={this.state.debit} />) 
+    const DebitsComponent = () => (<Debits debits={this.state.debit} addDebit={this.addDebit}/>) 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
       <Router basename="/bankofreact">
