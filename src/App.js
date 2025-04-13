@@ -108,8 +108,8 @@ class App extends Component {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
-    const CreditsComponent = () => (<Credits credits={this.state.credit} addCredit={this.addCredit} creditAmount = {this.state.creditAmount} balance = {this.state.accountBalance}/>) 
-    const DebitsComponent = () => (<Debits debits={this.state.debit} addDebit={this.addDebit} debitAmount = {this.state.debitAmount} balance = {this.state.accountBalance}/>) 
+    const CreditsComponent = () => (<Credits credits={this.state.credit} addCredit={this.addCredit} creditAmount = {this.state.creditAmount} accountBalance = {this.state.accountBalance}/>) 
+    const DebitsComponent = () => (<Debits debits={this.state.debit} addDebit={this.addDebit} debitAmount = {this.state.debitAmount} accountBalance = {this.state.accountBalance}/>) 
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
       <Router basename="/bankofreact">

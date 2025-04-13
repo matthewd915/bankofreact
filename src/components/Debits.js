@@ -1,5 +1,7 @@
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
+import AccountBalance from './AccountBalance';
+
 
 const Debits = (props) => {
   const [description, setDescription] = useState('');
@@ -28,7 +30,7 @@ const Debits = (props) => {
     props.addDebit(data);
     setDescription('');
     setAmount('');
-    
+
   };
 
   let debitsView = () => {
@@ -65,6 +67,7 @@ const Debits = (props) => {
 
       <br />
       <Link to="/">Return to Home</Link>
+      <AccountBalance accountBalance={props.accountBalance} />
     </div>
   );
 };
