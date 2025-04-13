@@ -1,28 +1,17 @@
 .credits-container {
     max-width: 600px;
     margin: 60px auto;
-    padding: 40px 30px;
     text-align: center;
     background-color: #ffffff;
     border-radius: 16px;
-    font-family: 'Arial', sans-serif;
 }
 
 .title {
     font-size: 2.2rem;
     font-weight: bold;
-    margin-bottom: 30px;
-}
-  
-.credits-container ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 30px;
-    text-align: left;
 }
   
 .credits-container li {
-    font-size: 1rem;
     margin-bottom: 12px;
 }
   
@@ -30,13 +19,12 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-bottom: 30px;
 }
   
 .form input {
     padding: 10px 12px;
     font-size: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #d2d2d2;
     border-radius: 8px;
 }
   
