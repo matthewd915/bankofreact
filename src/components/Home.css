@@ -23,8 +23,13 @@
     border-radius: 20px;
     margin-bottom: 40px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
   }
-
+  
+  .home-image:hover {
+    transform: scale(1.02);
+  }
+  
   .home-links {
     display: flex;
     justify-content: center;

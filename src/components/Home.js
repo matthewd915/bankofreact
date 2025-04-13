@@ -10,7 +10,7 @@ class Home extends Component {
         <div className="home-header">Welcome to The Bank of React</div>
 
         <img
-          className="h  "
+          className="home-image"
           src="https://picsum.photos/200/200"
           alt="bank"
         />
