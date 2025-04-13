@@ -80,6 +80,16 @@ addDebit = (added_debit) => {
     accountBalance: prevState.accountBalance - added_debit.amount
   }));
 }
+  }
+
+  addCredit = (added_credit) => {
+    const new_credit_list = [...this.state.credit, added_credit] // create a new array appending added_credit obj to the end
+    // set creditList to new_credit_list and add the credit amt to our balance
+    this.setState(prevState => ({
+      credit: new_credit_list,
+      accountBalance: prevState.accountBalance + added_credit.amount,
+    }));
+  }
 
   // Create Routes and React elements to be rendered using React components
   render() {  
@@ -89,8 +99,13 @@ addDebit = (added_debit) => {
       <UserProfile userName={this.state.currentUser.userName} memberSince={this.state.currentUser.memberSince} />
     )
     const LogInComponent = () => (<LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />)
+<<<<<<< HEAD
     const CreditsComponent = () => (<Credits credits={this.state.credit} />) 
     const DebitsComponent = () => (<Debits debits={this.state.debit} addDebit={this.addDebit}/>) 
+=======
+    const CreditsComponent = () => (<Credits credits={this.state.credit} addCredit={this.addCredit}/>) 
+    const DebitsComponent = () => (<Debits debits={this.state.debit} />) 
+>>>>>>> 7c6dbf1fb63b0e32714a25ad3e2c251d561919f8
     // Important: Include the "basename" in Router, which is needed for deploying the React app to GitHub Pages
     return (
       <Router basename="/bankofreact">
