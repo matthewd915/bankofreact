@@ -5,6 +5,8 @@ The Credits component contains information for Credits page view.
 Note: You need to work on this file for the Assignment.
 ==================================================*/
 import {Link} from 'react-router-dom';
+import AccountBalance from './AccountBalance';
+import './Credits.css';
 
 const Credits = (props) => {
 
@@ -30,17 +32,20 @@ const Credits = (props) => {
     })
   }
   return (
-    <div>
-      <h1>Credits</h1>
+    <div className = "credits-container">
+      <h1 className = "title">Credits</h1>
+      <div className="balance-display">
+          <AccountBalance accountBalance={props.accountBalance} />
+      </div>
       {creditsView()}
 
-      <form onSubmit={handleAdd}>
+      <form onSubmit={handleAdd} className = "form">
         <input type="text" name="description" />
         <input type="number" name="amount" />
         <button type="submit">Add Credit</button>
       </form>
       <br/>
-      <Link to="/">Return to Home</Link>
+      <Link to="/" className = "link">Return to Home</Link>
     </div>
   );
 }
