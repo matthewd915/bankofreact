@@ -6,11 +6,17 @@ const Credits = (props) => {
 
   const handleAdd = (e) => {
     e.preventDefault();
+
+    const desc = e.target.elements.description.value
+    const amt = parseFloat(parseFloat(e.target.elements.amount.value).toFixed(2))
+
+    if(!desc || !amt) return;
+
     // we're not displaying id, so just use an arbitrary number
     const new_credit = {
       id:0,
-      description: e.target.elements.description.value,
-      amount: parseFloat(parseFloat(e.target.elements.amount.value).toFixed(2)),
+      description: desc,
+      amount: amt,
       date: new Date().toISOString()
     }
 
