@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AccountBalance from './AccountBalance';
 import './Home.css';
+import bank_image from '../img/bank.png'
 
 class Home extends Component {
   render() {
@@ -11,7 +12,7 @@ class Home extends Component {
 
         <img
           className="home-image"
-          src="https://picsum.photos/200/200"
+          src={bank_image}
           alt="bank"
         />
 
