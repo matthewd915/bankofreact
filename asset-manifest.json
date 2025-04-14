@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bankofreact/static/css/main.7869dbdd.css",
+    "main.js": "/bankofreact/static/js/main.b2b9ab3b.js",
+    "static/js/453.d81f9453.chunk.js": "/bankofreact/static/js/453.d81f9453.chunk.js",
+    "index.html": "/bankofreact/index.html",
+    "main.7869dbdd.css.map": "/bankofreact/static/css/main.7869dbdd.css.map",
+    "main.b2b9ab3b.js.map": "/bankofreact/static/js/main.b2b9ab3b.js.map",
+    "453.d81f9453.chunk.js.map": "/bankofreact/static/js/453.d81f9453.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7869dbdd.css",
+    "static/js/main.b2b9ab3b.js"
+  ]
+}
