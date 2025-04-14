@@ -51,6 +51,7 @@ const Debits = (props) => {
       {debitsView()}
 
       <form onSubmit={handleSubmit} className = "form">
+        <div>Enter Description Below:</div>
         <input
           type="text"
           name="description"
@@ -58,6 +59,7 @@ const Debits = (props) => {
           onChange={(e) => setDescription(e.target.value)}
         />
 
+        <div>Enter Amount Below:</div>
         <input
           type="number"
           name="amount"
