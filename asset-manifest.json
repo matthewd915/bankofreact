@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/bankofreact/static/css/main.7869dbdd.css",
-    "main.js": "/bankofreact/static/js/main.75d3ee35.js",
+    "main.js": "/bankofreact/static/js/main.95ef1406.js",
     "static/js/453.d81f9453.chunk.js": "/bankofreact/static/js/453.d81f9453.chunk.js",
+    "static/media/bank.png": "/bankofreact/static/media/bank.e725dce7e18d3667d458.png",
     "index.html": "/bankofreact/index.html",
     "main.7869dbdd.css.map": "/bankofreact/static/css/main.7869dbdd.css.map",
-    "main.75d3ee35.js.map": "/bankofreact/static/js/main.75d3ee35.js.map",
+    "main.95ef1406.js.map": "/bankofreact/static/js/main.95ef1406.js.map",
     "453.d81f9453.chunk.js.map": "/bankofreact/static/js/453.d81f9453.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7869dbdd.css",
-    "static/js/main.75d3ee35.js"
+    "static/js/main.95ef1406.js"
   ]
 }
