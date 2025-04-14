@@ -49,6 +49,7 @@ const Debits = (props) => {
         <AccountBalance accountBalance={props.accountBalance} />
       </h1>
       {debitsView()}
+      <br/>
 
       <form onSubmit={handleSubmit} className = "form">
         <div>Enter Description Below:</div>
